@@ -9,9 +9,7 @@ const openai = new OpenAI({
 
 export async function POST(request: NextRequest) {
   const prompt = request.nextUrl.searchParams.get('prompt') as string;
-  console.log("prompt:", prompt)
   
-  // Await the sleep function for 30,000 milliseconds (30 seconds)
   const response = await openai.chat.completions.create({
     model: "gpt-4-turbo-preview",
     stream: true,
@@ -30,9 +28,7 @@ export async function POST(request: NextRequest) {
       },
     ]
   });
-  console.log("response:", response)
   
   const stream = OpenAIStream(response);
-  console.log("stream:", stream)
   return new StreamingTextResponse(stream);
 }

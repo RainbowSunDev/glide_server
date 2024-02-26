@@ -3,6 +3,7 @@ import OpenAI from "openai";
 import { OpenAIStream, StreamingTextResponse } from "ai";
 
 console.log("openai Key:", process.env.NEXT_PUBLIC_OPENAI_API_KEY)
+
 const openai = new OpenAI({
   apiKey: process.env.NEXT_PUBLIC_OPENAI_API_KEY!,
 });
